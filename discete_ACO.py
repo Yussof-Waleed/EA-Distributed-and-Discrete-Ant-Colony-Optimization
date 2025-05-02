@@ -300,7 +300,7 @@ def visualize_solution(problem: TSPProblem, tour: list, cost: float, history):
     
     # Plot cities and tour
     plt.plot(x, y, TOUR_PLOT_STYLE)
-    plt.title(f'Best Tour Found (Cost: {cost:.2f})')
+    plt.title(f'Best Tour Found by Discrete_ACO (Cost: {cost:.2f})')
     plt.xlabel('X')
     plt.ylabel('Y')
     
@@ -312,6 +312,7 @@ def visualize_solution(problem: TSPProblem, tour: list, cost: float, history):
     plt.ylabel('Total Distance')
     
     plt.tight_layout()
+    plt.savefig('assets/discrete_aco_tsp_solution.png', dpi=300)
     plt.show()
 
 

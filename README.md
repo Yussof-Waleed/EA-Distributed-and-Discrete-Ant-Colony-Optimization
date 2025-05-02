@@ -165,7 +165,7 @@ pip install numpy matplotlib
 2. Download the source code:
 
 ```bash
-git clone https://github.com/yourusername/ant-colony-optimization.git
+git https://github.com/Yussof-Waleed/EA-Distributed-and-Discrete-Ant-Colony-Optimization
 cd ant-colony-optimization
 ```
 
@@ -330,3 +330,82 @@ For optimal performance, consider these guidelines for tuning parameters:
    - Recommended range: 0.05 to 0.2
 
 By adjusting these parameters, you can control the balance between exploration (finding new solutions) and exploitation (refining known good solutions).
+
+
+# Utilizing Visual Performance Results
+
+Based on the execution results in the provided images, I've added a performance comparison section to highlight the differences between Discrete ACO and Distributed ACO implementations.
+
+## Performance Comparison
+
+### Solution Quality and Convergence
+
+The performance results from both algorithms show interesting differences in solution quality and convergence patterns:
+
+| Algorithm | Final Tour Cost | Convergence Pattern |
+|-----------|-----------------|---------------------|
+| Discrete ACO | 2805.37 | Smooth, rapid convergence |
+| Distributed ACO | 3194.95 | Oscillating with exploration |
+
+### Discrete ACO Performance
+
+<img src="assets/discrete_aco_tsp_solution.png" alt="Discrete ACO Results" width="800">
+
+**Observations:**
+- Achieves a better final solution (Cost: 2805.37)
+- Shows rapid initial convergence
+- Stabilizes around iteration 40
+- Smooth convergence curve indicates consistent improvement
+- Final solution appears well-optimized with minimal crossings
+
+### Distributed ACO Performance
+
+<img src="assets/distributed_aco_tsp_solution.png" alt="Distributed ACO Results" width="800">
+
+
+**Observations:**
+- Higher final cost (3194.95) but explores solution space more thoroughly
+- Shows high variability in the convergence curve
+- Continues exploring different solutions throughout all iterations
+- The oscillating pattern indicates active exploration due to the genetic operations
+- May benefit from longer run times to fully leverage genetic diversity
+
+### Analysis of Differences
+
+1. **Convergence Behavior:**
+   - Discrete ACO shows classic convergence with diminishing returns
+   - Distributed ACO shows exploration-exploitation trade-offs with its hybrid approach
+
+2. **Solution Stability:**
+   - Discrete ACO finds a good solution quickly and refines it
+   - Distributed ACO continuously explores the solution space due to genetic operations
+
+3. **Performance Recommendations:**
+   - For quick, stable results: Use Discrete ACO
+   - For complex problems requiring exploration: Use Distributed ACO with longer run times
+
+## Parameter Impact on Visual Results
+
+The visual results demonstrate how parameter settings affect algorithm behavior:
+
+1. **Alpha and Beta Balance:**
+   - Higher beta values (in Discrete ACO) lead to straighter paths between nearby cities
+   - Higher alpha values would result in more clustering around initially successful paths
+
+2. **Evaporation Rate Effect:**
+   - The moderate evaporation rate (0.1) allows both algorithms to forget poor solutions
+   - Distributed ACO might benefit from a lower evaporation rate to maintain diversity
+
+3. **Genetic Operations (Distributed ACO):**
+   - The mutation and crossover operations cause the oscillation in the convergence graph
+   - This exploration prevents premature convergence but may require tuning for optimal results
+
+To observe these effects yourself, try running both algorithms with different parameter settings:
+
+```bash
+# Run Discrete ACO
+python discrete_ACO.py
+
+# Run Distributed ACO 
+python distributed_ACO.py 
+```

@@ -277,7 +277,7 @@ def visualize_solution(cities, tour, cost, history):
     
     # Plot cities and tour
     plt.plot(x, y, 'ro-')
-    plt.title(f'Best Tour Found by DACO (Cost: {cost:.2f})')
+    plt.title(f'Best Tour Found by Distributed_ACO (Cost: {cost:.2f})')
     plt.xlabel('X')
     plt.ylabel('Y')
     
@@ -289,6 +289,7 @@ def visualize_solution(cities, tour, cost, history):
     plt.ylabel('Total Distance')
     
     plt.tight_layout()
+    plt.savefig('assets/distributed_aco_tsp_solution.png', dpi=300)
     plt.show()
 
 

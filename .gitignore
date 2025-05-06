@@ -1,2 +1,4 @@
 venv/
 Project structure and Guidelines.md
+__pycache__
+*.pyc

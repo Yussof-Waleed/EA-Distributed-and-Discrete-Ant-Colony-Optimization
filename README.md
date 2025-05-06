@@ -185,14 +185,14 @@ The project is structured as follows:
 
 1. Clone the repository:
    ```
-   git clone <repository-url>
-   cd ant-colony-optimization-tsp
+   git clone https://github.com/Yussof-Waleed/EA-Distributed-and-Discrete-Ant-Colony-Optimization
+   cd EA-Distributed-and-Discrete-Ant-Colony-Optimization
    ```
 
 2. Create and activate a virtual environment (optional but recommended):
    ```
-   python -m venv .venv
-   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+   python -m virtualenv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
 3. Install the required packages:
@@ -231,8 +231,8 @@ The following table compares the performance of the two implemented ACO algorith
 
 | Algorithm | Best Distance | Execution Time | % Improvement |
 |-----------|---------------|----------------|---------------|
-| Discrete ACO | 8346.54 | 30.12s | - |
-| Distributed ACO | 8202.96 | 35.87s | 1.72% |
+| Discrete ACO | 7781.64 | 296.22s | - |
+| Distributed ACO | 7765.50 | 295.27s | 0.21% |
 
 ## Analysis of Algorithm Differences
 
@@ -256,22 +256,22 @@ Our experiments on a 100-city TSP instance showed the following results:
 #### Solution Comparison
 ![Solutions Comparison](results/solutions_comparison.png)
 
-As shown in the comparison, the Distributed ACO algorithm (right, red) found a better solution with a total distance of 8202.96, compared to the Discrete ACO's solution (left, blue) with a distance of 8346.54.
+As shown in the comparison, the Distributed ACO algorithm (right, red) found a slightly better solution with a total distance of 7765.50, compared to the Discrete ACO's solution (left, blue) with a distance of 7781.64.
 
 #### Convergence Behavior
 ![Convergence Comparison](results/convergence_comparison.png)
 
-The convergence graph shows that both algorithms quickly improved their solutions in the early iterations. However, Distributed ACO achieved a better final solution and converged faster due to its parallel exploration strategy and information exchange between colonies.
+The convergence graph shows that both algorithms quickly improved their solutions in the early iterations. Discrete ACO initially found better solutions faster, but Distributed ACO eventually achieved a better final solution by the end of the optimization process.
 
 ### Analysis
 
-Our experiments show that Distributed ACO generally converges faster than Discrete ACO due to its parallel exploration strategy. The information exchange between colonies in Distributed ACO allows for better exploration of the search space, which often leads to finding better solutions, especially for larger problem instances.
+Our experiments show that Distributed ACO can find marginally better solutions than Discrete ACO due to its parallel exploration strategy. The information exchange between colonies in Distributed ACO allows for better exploration of the search space, which often leads to finding better solutions, especially for larger problem instances.
 
-In this particular run, Distributed ACO achieved a solution that was approximately 1.7% better than Discrete ACO, with a total distance of 8202.96 versus 8346.54.
+In this particular run, Distributed ACO achieved a solution that was approximately 0.21% better than Discrete ACO, with a total distance of 7765.50 versus 7781.64. The execution times were very similar, with Discrete ACO taking 296.22 seconds and Distributed ACO taking 295.27 seconds.
 
 ## Glossary of Terms
 
-- **Ant Colony Optimization (ACO)**: A metaheuristic optimization algorithm inspired by the foraging behavior of ants, where artificial ants construct solutions guided by pheromone trails and heuristic information.
+- **Ant Colony Optimization (ACO)**: A nature-inspired optimization algorithm that mimics the foraging behavior of ants, where artificial ants construct solutions guided by pheromone trails and heuristic information.
 
 - **Pheromone Trails**: Chemical substances deposited by ants to mark favorable paths. In ACO algorithms, these are numerical values that represent the learned desirability of taking specific paths based on previous solutions.
 
@@ -291,7 +291,7 @@ In this particular run, Distributed ACO achieved a solution that was approximate
 
 - **Global Optima**: The best possible solution to the problem.
 
-- **Metaheuristic**: A high-level problem-independent algorithmic framework that provides a set of guidelines or strategies to develop heuristic optimization algorithms.
+- **High-level Problem-solving Framework**: A general algorithmic approach that provides guidelines or strategies to develop optimization algorithms without specifying exact implementation details.
 
 - **Stagnation**: A condition where the algorithm gets trapped in a particular solution and fails to improve further.
 
